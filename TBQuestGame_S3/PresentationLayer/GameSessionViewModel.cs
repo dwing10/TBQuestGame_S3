@@ -115,6 +115,9 @@ namespace TBQuestGame_S1.PresentationLayer
             _messages = initialMessage;
             MessageBoxContent = "\tSelect a location to travel there.";
 
+            player.Attack = CalculateAttack();
+            player.Defense = CalculateDefense();
+
             InitializeView();
         }
 
@@ -183,11 +186,20 @@ namespace TBQuestGame_S1.PresentationLayer
             }
             if (buff.Id == "BOL")
             {
-                Player.LegionnaireNumbers += 25;
+                GameItemQuantity gameItemQuantity = _player.Inventory.FirstOrDefault(i => i.GameItem.Id == "LEG");
+                if (gameItemQuantity != null)
+                {
+                    gameItemQuantity.Quantity += 25;
+                    Player.LegionnaireNumbers += 25;
+                }
             }
             if (buff.Id == "TRI")
             {
-                Player.Inventory.Add(new GameItemQuantity(new Treasure("GLD", "Gold", 1, "Gold is the key to building a powerful legion", Treasure.TreasureType.Coin), 1000));
+                GameItemQuantity gameItemQuantity = _player.Inventory.FirstOrDefault(i => i.GameItem.Id == "GLD");
+                if (gameItemQuantity != null)
+                {
+                    gameItemQuantity.Quantity += 1000;
+                }
             }
         }
 
@@ -196,10 +208,12 @@ namespace TBQuestGame_S1.PresentationLayer
             if (seigeWeapon.Id == "CAT")
             {
                 Player.Attack += 200;
+                Player.NumOfSeigeWeapons += 1;
             }
             if (seigeWeapon.Id == "BAL")
             {
                 Player.Attack += 100;
+                Player.NumOfSeigeWeapons += 1;
             }
         }
 
@@ -344,6 +358,40 @@ namespace TBQuestGame_S1.PresentationLayer
             inventoryView.ShowDialog();
         }
 
+        /// <summary>
+        /// calculates player attack
+        /// </summary>
+        /// <returns></returns>
+        public int CalculateAttack()
+        {
+            int calculatedAttack = 0;
+            
+            GameItemQuantity soldierInInventory = _player.Inventory.FirstOrDefault(i => i.GameItem.Id == "LEG");
+
+            if (soldierInInventory != null)
+            {
+                calculatedAttack = soldierInInventory.Quantity * 1;
+            }
+
+            return calculatedAttack;
+        }
+
+        /// <summary>
+        /// calculates player defense
+        /// </summary>
+        /// <returns></returns>
+        public int CalculateDefense()
+        {
+            int calculatedDefense = 0;
+            GameItemQuantity soldierInInventory = _player.Inventory.FirstOrDefault(i => i.GameItem.Id == "LEG");
+
+            if (soldierInInventory != null)
+            {
+                calculatedDefense = soldierInInventory.Quantity * 3;
+            }
+
+            return calculatedDefense;
+        }
         #endregion
     }
 }

@@ -26,13 +26,13 @@ namespace TBQuestGame_S1.Models
 
         #region Fields
         private string _legionName;
+        private int _numOfSeigeWeapons;
         private int _legionnaireNumbers;
         private int _archerNumbers;
         private int _cavalryNumbers;
         private int _praetorianNumbers;
         private int _centurionNumbers;
         private int _praetorNumbers;
-        private int _gold;
         private Gender _playerGender;
         private StartStyle _playerStartStyle;
         private ObservableCollection<GameItemQuantity> _inventory;
@@ -47,6 +47,12 @@ namespace TBQuestGame_S1.Models
         {
             get { return _legionName; }
             set { _legionName = value; }
+        }
+
+        public int NumOfSeigeWeapons
+        {
+            get { return _numOfSeigeWeapons; }
+            set { _numOfSeigeWeapons = value; }
         }
 
         public int LegionnaireNumbers
@@ -83,12 +89,6 @@ namespace TBQuestGame_S1.Models
         {
             get { return _praetorNumbers; }
             set { _praetorNumbers = value; }
-        }
-
-        public int Gold
-        {
-            get { return _gold; }
-            set { _gold = value; }
         }
 
         public Gender PlayerGender
@@ -205,6 +205,17 @@ namespace TBQuestGame_S1.Models
             }
 
             UpdateInventoryCategories();
+        }
+
+        /// <summary>
+        /// displays message to the barraks window
+        /// </summary>
+        public string InitialMessage()
+        {
+            return
+                "You have been tasked by your Emperor and the High Council to lay seige on enemy lands. " +
+                "Along with the title of Imperator, you have been given a legion and a starting sum of gold. " +
+                "Use your newfound status and wealth wisely. The Emperor will not tolerate failure. ";
         }
 
         #endregion

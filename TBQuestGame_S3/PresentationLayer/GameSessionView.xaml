@@ -21,7 +21,7 @@
     <!--Main Grid-->
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/woodWall.jpg"/>
+            <ImageBrush ImageSource="/Assets/woodWall.jpg" Opacity=".7"/>
         </Grid.Background>
         <Border 
             Margin="10" 
@@ -342,14 +342,15 @@
 
                                 <TabItem 
                                     Header="Buffs"
-                                    x:Name= "BuffsTab">
+                                    x:Name= "BuffsTab"
+                                    >
                                     <DataGrid 
                                         x:Name= "BuffsDataGrid"
                                         ItemsSource="{Binding Player.Buffs}"
                                         SelectedItem="{Binding CurrentGameItem}"
                                         AutoGenerateColumns="False"
                                         HeadersVisibility="Column"
-                                        Background="Khaki">
+                                        Background="Beige">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn 
                                             Header="Name"

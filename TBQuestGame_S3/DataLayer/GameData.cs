@@ -20,8 +20,8 @@ namespace TBQuestGame_S1.DataLayer
                 PlayerGender = Player.Gender.male,
                 Title = Character.CharacterTitle.Praetor,
                 PlayerStartStyle = Player.StartStyle.neutral,
-                Attack = 510,
-                Defense = 1000,
+                //Attack = 510,
+                //Defense = 1000,
                 Rank = 1,
                 Inventory = new ObservableCollection<GameItemQuantity>()
                 {
@@ -30,7 +30,9 @@ namespace TBQuestGame_S1.DataLayer
                     new GameItemQuantity(GameItemById("ARC"), 200),
                     new GameItemQuantity(GameItemById("INS"), 1),
                     new GameItemQuantity(GameItemById("TRI"), 1)
-                }
+                },
+                LegionnaireNumbers = 500,
+                ArcherNumbers = 300
             };
         }
 

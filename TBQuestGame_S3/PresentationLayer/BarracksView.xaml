@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TBQuestGame_S1.PresentationLayer"
         mc:Ignorable="d"
-        Title="BarracksView" Height="450" Width="800">
+        Title="BarracksView" Height="450" Width="800" Background="Black">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/woodWall.jpg"/>
+            <ImageBrush ImageSource="/Assets/woodWall.jpg" Opacity=".7"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -262,6 +262,7 @@
                 </Label.Effect>
             </Label>
             <Label
+                x:Name="LegionnaireNumbers"
                 Margin="0,20,0,0"
                 HorizontalContentAlignment="Center"
                 FontSize="18"
@@ -270,6 +271,7 @@
                 Width="100"
                 Height="30"/>
             <Label
+                x:Name="ArcherNumbers"
                 Margin="0,25,0,0"
                 HorizontalContentAlignment="Center"
                 FontSize="18"
@@ -278,6 +280,7 @@
                 Width="100"
                 Height="30"/>
             <Label
+                x:Name="CavalryNumbers"
                 Margin="0,25,0,0"
                 HorizontalContentAlignment="Center"
                 FontSize="18"
@@ -290,6 +293,7 @@
             Grid.Row="1"
             Grid.Column="2">
             <Label
+                x:Name="PraetorianNumbers"
                 Margin="0,20,0,0"
                 HorizontalContentAlignment="Center"
                 FontSize="18"
@@ -298,6 +302,7 @@
                 Width="100"
                 Height="30"/>
             <Label
+                x:Name="CenturionNumbers"
                 Margin="0,20,0,0"
                 HorizontalContentAlignment="Center"
                 FontSize="18"
@@ -306,6 +311,7 @@
                 Width="100"
                 Height="30"/>
             <Label
+                x:Name="PraetorNumbers"
                 Margin="0,20,0,0"
                 HorizontalContentAlignment="Center"
                 FontSize="18"
@@ -332,7 +338,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="160"/>
                 </Grid.RowDefinitions>
                 <Label 
                     Grid.Row="0"
@@ -346,6 +352,16 @@
                         <DropShadowEffect Color="Black" Direction="320" ShadowDepth="10" Opacity=".9"/>
                     </Label.Effect>
                 </Label>
+                <TextBox 
+                    Grid.Row="1"
+                    x:Name="MissionBox"
+                    TextWrapping="Wrap"
+                    FontSize="16"
+                    FontWeight="ExtraBold"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    />
             </Grid>
         </StackPanel>
     </Grid>

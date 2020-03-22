@@ -29,6 +29,9 @@ namespace TBQuestGame_S1.PresentationLayer
             FillInfo();
         }
 
+        /// <summary>
+        /// fills in labels with content
+        /// </summary>
         private void FillInfo()
         {
             legionName.Content = _player.LegionName;
@@ -36,6 +39,13 @@ namespace TBQuestGame_S1.PresentationLayer
             attack.Content = _player.Attack;
             defense.Content = _player.Defense;
             rank.Content = _player.Rank;
+            LegionnaireNumbers.Content = _player.LegionnaireNumbers;
+            ArcherNumbers.Content = _player.ArcherNumbers;
+            CavalryNumbers.Content = _player.CavalryNumbers;
+            PraetorianNumbers.Content = _player.PraetorianNumbers;
+            CenturionNumbers.Content = _player.CenturionNumbers;
+            PraetorNumbers.Content = _player.PraetorNumbers;
+            MissionBox.Text = _player.InitialMessage();
         }
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
